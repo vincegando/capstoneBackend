@@ -1,7 +1,7 @@
 Install docker and docker-compose:
 	https://docs.docker.com/compose/install/
 
-extract files and navigate to the SmartNetwork folder(where "docker-compose.yml" is).
+Navigate to the SmartNetwork folder(where "docker-compose.yml" is).
 execute
 docker-compose up
 from the terminal
