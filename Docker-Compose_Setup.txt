@@ -1,0 +1,15 @@
+Install docker and docker-compose:
+	https://docs.docker.com/compose/install/
+
+extract files and navigate to the SmartNetwork folder(where "docker-compose.yml" is).
+execute
+docker-compose up
+from the terminal
+
+test by typing "localhost:3030" into your browser url.
+it should show the default web page.
+
+All the nodejs code chould be put into the app folder.
+It's using nodev4.6.1.
+
+mongodb should be linked to the node container but acessing mysql on it's own should be done through port 27017.
