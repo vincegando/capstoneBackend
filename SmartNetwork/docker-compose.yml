@@ -1,0 +1,21 @@
+web:
+  build: .
+  volumes:
+    - "./app:/src/app"
+  ports:
+    - "3030:3000"
+  links:
+    - db
+
+db:
+  image: bitnami/mongodb:latest
+  ports:
+    - "27017:27017"
+  volumes:
+    - /srv/docker/mongodb:/var/lib/mongodb
+  restart: always
+  environment:
+    - MONGODB_USERNAME=user
+    - MONGODB_PASSWORD=Pass321word!
+    - MONGODB_DATABASE=smartnetwork
+    - MONGODB_ROOT_PASSWORD=Smart123network321*
