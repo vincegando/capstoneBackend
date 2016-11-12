@@ -10,6 +10,8 @@ RUN apt-get install -y libqt4-webkit libqt4-dev xvfb
 # for a JS runtime
 RUN apt-get install -y nodejs
 
+RUN apt-get install -y mongodb
+
 COPY SmartNetwork/Gemfile* /tmp/
 WORKDIR /tmp
 RUN bundle install
@@ -19,4 +21,6 @@ RUN mkdir $app
 WORKDIR $app
 ADD SmartNetwork $app
 
-CMD rails c -b 0.0.0.0
+EXPOSE 3000
+
+CMD bundle exec rails s -p 3000 -b '0.0.0.0'

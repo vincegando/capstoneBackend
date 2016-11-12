@@ -56,17 +56,5 @@ Rails.application.routes.draw do
 
   get 'heatmap/:id' => 'heatmap#get_heatmap_points'
 
-  resources :heatmap do 
-    collection do 
-      get 'get_heatmap_points'
-    end
-  end
-
-  post 'heatmap/id' => 'heatmap#post_heatmap'
-
-  
-
-
 
 end
-

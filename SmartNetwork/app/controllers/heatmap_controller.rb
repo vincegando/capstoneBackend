@@ -5,8 +5,4 @@ class HeatmapController < ApplicationController
 		render :json => params[:id]
 	end
 
-	def create	    
-	    render :json => params[:id]
-    end
-
 end
