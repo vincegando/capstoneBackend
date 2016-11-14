@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Loc</th>
+      <th>Host</th>
+      <th>Time</th>
+      <th>Bps sent</th>
+      <th>Bps received</th>
+      <th>Jitter ms</th>
+      <th>Tx rate</th>
+      <th>Rx rate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pins.each do |pin| %>
+      <tr>
+        <td><%= pin.loc %></td>
+        <td><%= pin.host %></td>
+        <td><%= pin.time %></td>
+        <td><%= pin.bps_sent %></td>
+        <td><%= pin.bps_received %></td>
+        <td><%= pin.jitter_ms %></td>
+        <td><%= pin.tx_rate %></td>
+        <td><%= pin.rx_rate %></td>
+        <td><%= link_to 'Show', map_pin_path(@map, pin) %></td>
+        <td><%= link_to 'Edit', edit_map_pin_path(@map, pin) %></td>
+        <td><%= link_to 'Destroy', [@map, pin], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pin', new_map_pin_path(@map) %>

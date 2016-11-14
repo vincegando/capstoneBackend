@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loc: 
+  host: MyString
+  time: MyString
+  bps_sent: 1.5
+  bps_received: 1.5
+  jitter_ms: 
+  tx_rate: 
+  rx_rate: 1.5
+
+two:
+  loc: 
+  host: MyString
+  time: MyString
+  bps_sent: 1.5
+  bps_received: 1.5
+  jitter_ms: 
+  tx_rate: 
+  rx_rate: 1.5

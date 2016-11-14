@@ -86,6 +86,8 @@ GEM
     minitest (5.9.1)
     mongo (2.1.0.beta)
       bson (~> 3.0)
+    mongoid-geospatial (5.0.0)
+      mongoid (>= 5.0.0.beta)
     multi_json (1.12.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -164,6 +166,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mongoid (~> 5.0.0.beta)!
+  mongoid-geospatial
   rack (~> 1.6.5)
   rails (= 4.2.7.1)
   sass-rails (~> 5.0)

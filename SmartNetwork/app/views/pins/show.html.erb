@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Loc:</strong>
+  <%= @pin.loc %>
+</p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @pin.host %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @pin.time %>
+</p>
+
+<p>
+  <strong>Bps sent:</strong>
+  <%= @pin.bps_sent %>
+</p>
+
+<p>
+  <strong>Bps received:</strong>
+  <%= @pin.bps_received %>
+</p>
+
+<p>
+  <strong>Jitter ms:</strong>
+  <%= @pin.jitter_ms %>
+</p>
+
+<p>
+  <strong>Tx rate:</strong>
+  <%= @pin.tx_rate %>
+</p>
+
+<p>
+  <strong>Rx rate:</strong>
+  <%= @pin.rx_rate %>
+</p>
+
+<%= link_to 'Edit', edit_pin_path(@pin) %> |
+<%= link_to 'Back', pins_path %>
