@@ -71,4 +71,5 @@ class MapsController < ApplicationController
     def map_params
       params.require(:map).permit(:name)
     end
+
 end

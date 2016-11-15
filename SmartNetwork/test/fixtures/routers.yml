@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loc: 
+  MAC: MyString
+  name: MyString
+  serial: MyString
+  model: MyString
+
+two:
+  loc: 
+  MAC: MyString
+  name: MyString
+  serial: MyString
+  model: MyString

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Routers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Loc</th>
+      <th>Mac</th>
+      <th>Name</th>
+      <th>Serial</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @routers.each do |router| %>
+      <tr>
+        <td><%= router.loc %></td>
+        <td><%= router.MAC %></td>
+        <td><%= router.name %></td>
+        <td><%= router.serial %></td>
+        <td><%= link_to 'Show', router %></td>
+        <td><%= link_to 'Edit', edit_router_path(router) %></td>
+        <td><%= link_to 'Destroy', router, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Router', new_router_path %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Loc:</strong>
+  <%= @router.loc %>
+</p>
+
+<p>
+  <strong>Mac:</strong>
+  <%= @router.MAC %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @router.name %>
+</p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @router.serial %>
+</p>
+
+
+<%= link_to 'Edit', edit_router_path(@router) %> |
+<%= link_to 'Back', routers_path %>

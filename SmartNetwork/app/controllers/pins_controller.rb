@@ -65,7 +65,7 @@ class PinsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pin
-      @pin = @map.pin.find(params[:id])
+      @pin = @map.pins.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -76,4 +76,5 @@ class PinsController < ApplicationController
     def load_map
       @map = Map.find(params[:map_id])
     end
+
 end
