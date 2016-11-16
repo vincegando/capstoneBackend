@@ -1,4 +1,5 @@
 class MapsController < ApplicationController
+  protect_from_forgery
   before_action :set_map, only: [:show, :edit, :update, :destroy]
 
   # GET /maps

@@ -1,4 +1,5 @@
 class ResidencesController < ApplicationController
+  protect_from_forgery
   before_action :set_residence, only: [:show, :edit, :update, :destroy]
 
   # GET /residences

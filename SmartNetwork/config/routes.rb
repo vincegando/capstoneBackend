@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get 'heatmap/:id' => 'heatmap#get_heatmap_points'
+  #get 'maps/:id' => 'maps#get_maps'
 
 
 end

@@ -1,4 +1,5 @@
 class RoutersController < ApplicationController
+  protect_from_forgery
   before_action :set_router, only: [:show, :edit, :update, :destroy]
 
   # GET /routers
