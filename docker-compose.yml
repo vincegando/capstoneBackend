@@ -4,4 +4,19 @@ web:
     volumes:
         - "./SmartNetwork:/SmartNetwork"
     ports:
-        - "3000:3000"
+        - "80:3000"
+    links:
+        - db
+
+db:
+    image: mysql:latest
+    volumes:
+        - "./.data/db:/var/lib/mysql"
+    ports:
+        - "3307:3306"
+    restart: always
+    environment:
+        - MYSQL_ROOT_PASSWORD=Smart123network321*
+        - MYSQL_DATABASE=smartnetwork
+        - MYSQL_USER=user
+        - MYSQL_PASSWORD=Pass321word!

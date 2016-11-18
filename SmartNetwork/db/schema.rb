@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109021147) do
+ActiveRecord::Schema.define(version: 20161118214132) do
 
   create_table "heatmap_points", force: :cascade do |t|
     t.float    "latitude"
@@ -31,12 +31,11 @@ ActiveRecord::Schema.define(version: 20161109021147) do
     t.datetime "updated_at"
   end
 
-  create_table "heatmaps", force: :cascade do |t|
-    t.string   "channel"
-    t.string   "radio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "heatmaps" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "residences" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "routers", force: :cascade do |t|
     t.string   "mac_address"
