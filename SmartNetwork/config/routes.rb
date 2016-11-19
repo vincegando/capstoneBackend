@@ -54,13 +54,9 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get 'heatmap/:id' => 'heatmap#get_heatmap_points'
+  resources :heatmaps
 
-  resources :heatmap do 
-    collection do 
-      get 'get_heatmap_points'
-    end
-  end
+  get 'heatmap/:id' => 'heatmap#get_heatmap_points'
 
   post 'heatmap/id' => 'heatmap#post_heatmap'
 
