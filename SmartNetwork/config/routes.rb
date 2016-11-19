@@ -55,6 +55,8 @@ Rails.application.routes.draw do
   #   end
 
   resources :heatmaps
+  resources :routers
+  resources :residences
 
   get 'heatmap/:id' => 'heatmap#get_heatmap_points'
 

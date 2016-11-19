@@ -4,7 +4,4 @@ class Residence < ActiveRecord::Base
   		address :string
   		timestamps
   	end
-
-  	has_many :routers
-
 end
