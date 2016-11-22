@@ -11,6 +11,4 @@ class Router < ActiveRecord::Base
 	end
 	belongs_to :residence
 	belongs_to :heatmap
-
-	has_many :heatmap_points
 end

@@ -17,6 +17,4 @@ class HeatmapPoint < ActiveRecord::Base
     	timestamps
   	end
   	belongs_to :heatmap
-  	
-  	belongs_to :router
 end
