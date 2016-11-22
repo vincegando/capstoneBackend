@@ -1,10 +1,10 @@
 web:
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec rails s -p 3000 -b '0.0.0.0' -b0
     volumes:
         - "./SmartNetwork:/SmartNetwork"
     ports:
-        - "80:3000"
+        - "3000:3000"
     links:
         - dbdev
 

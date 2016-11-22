@@ -16,4 +16,7 @@ class HeatmapPoint < ActiveRecord::Base
 		client_rx_retries :integer
     	timestamps
   	end
+  	belongs_to :heatmap
+  	
+  	belongs_to :router
 end

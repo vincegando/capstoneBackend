@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118214132) do
+ActiveRecord::Schema.define(version: 20161119043110) do
 
   create_table "heatmap_points", force: :cascade do |t|
     t.float    "latitude"
     t.float    "longitude"
     t.string   "client_info"
     t.float    "upstream_bps"
-    t.float    "downstream_bps"
     t.float    "jitter"
+    t.float    "downstream_bps"
     t.float    "client_rssi"
     t.float    "router_rssi"
     t.integer  "num_active_clients"
@@ -29,13 +29,26 @@ ActiveRecord::Schema.define(version: 20161118214132) do
     t.integer  "client_rx_retries"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "heatmap_id"
   end
 
-# Could not dump table "heatmaps" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  add_index "heatmap_points", ["heatmap_id"], name: "index_heatmap_points_on_heatmap_id"
 
-# Could not dump table "residences" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "heatmaps", force: :cascade do |t|
+    t.string   "channel"
+    t.string   "radio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "residence_id"
+  end
+
+  add_index "heatmaps", ["residence_id"], name: "index_heatmaps_on_residence_id"
+
+  create_table "residences", force: :cascade do |t|
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "routers", force: :cascade do |t|
     t.string   "mac_address"
@@ -47,6 +60,11 @@ ActiveRecord::Schema.define(version: 20161118214132) do
     t.string   "owner"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "residence_id"
+    t.integer  "heatmap_id"
   end
+
+  add_index "routers", ["heatmap_id"], name: "index_routers_on_heatmap_id"
+  add_index "routers", ["residence_id"], name: "index_routers_on_residence_id"
 
 end
