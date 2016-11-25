@@ -9,4 +9,6 @@ class Router < ActiveRecord::Base
 		owner :string
 		timestamps
 	end
+	belongs_to :residence
+	belongs_to :heatmap
 end
