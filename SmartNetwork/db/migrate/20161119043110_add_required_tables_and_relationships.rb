@@ -1,4 +1,4 @@
-aclass AddRequiredTablesAndRelationships < ActiveRecord::Migration
+class AddRequiredTablesAndRelationships < ActiveRecord::Migration
   def self.up
     create_table :heatmaps do |t|
       t.string   :channel
