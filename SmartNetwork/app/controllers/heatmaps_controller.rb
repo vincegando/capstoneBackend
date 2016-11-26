@@ -73,7 +73,7 @@ class HeatmapsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
 
     def heatmap_params
-      params.requires(:heatmap).permit(:radio, :channel)
+      params.require(:heatmap).permit(:radio, :channel)
     end
 
 
