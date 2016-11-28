@@ -4,8 +4,8 @@ class Router < ActiveRecord::Base
 		serial_number :string
 		router_model :string
 		name :string
-		latitude :float
-		longitude :float
+		latitude :decimal
+		longitude :decimal
 		owner :string
 		timestamps
 	end
