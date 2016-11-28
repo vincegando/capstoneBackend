@@ -1,7 +1,7 @@
 class HeatmapPoint < ActiveRecord::Base
 	fields do
-		latitude :decimal
-		longitude :decimal
+		latitude :decimal, precision: 20, scale: 15
+		longitude :decimal, precision: 20, scale: 15
 		client_info :string
 		upstream_bps :float
 		downstream_bps :float
