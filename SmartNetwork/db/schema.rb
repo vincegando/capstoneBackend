@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128200410) do
+ActiveRecord::Schema.define(version: 20161128230136) do
 
   create_table "heatmap_points", force: :cascade do |t|
-    t.decimal  "latitude",                       precision: 10
-    t.decimal  "longitude",                      precision: 10
+    t.decimal  "latitude",                       precision: 20, scale: 15
+    t.decimal  "longitude",                      precision: 20, scale: 15
     t.string   "client_info",        limit: 255
     t.float    "upstream_bps",       limit: 24
     t.float    "jitter",             limit: 24
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20161128200410) do
     t.string   "serial_number", limit: 255
     t.string   "router_model",  limit: 255
     t.string   "name",          limit: 255
-    t.decimal  "latitude",                  precision: 10
-    t.decimal  "longitude",                 precision: 10
+    t.decimal  "latitude",                  precision: 20, scale: 15
+    t.decimal  "longitude",                 precision: 20, scale: 15
     t.string   "owner",         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
