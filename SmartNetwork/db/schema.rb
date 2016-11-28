@@ -14,57 +14,57 @@
 ActiveRecord::Schema.define(version: 20161119043110) do
 
   create_table "heatmap_points", force: :cascade do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "client_info"
-    t.float    "upstream_bps"
-    t.float    "jitter"
-    t.float    "downstream_bps"
-    t.float    "client_rssi"
-    t.float    "router_rssi"
-    t.integer  "num_active_clients"
-    t.float    "client_tx_speed"
-    t.float    "client_rx_speed"
-    t.integer  "client_tx_retries"
-    t.integer  "client_rx_retries"
+    t.float    "latitude",           limit: 24
+    t.float    "longitude",          limit: 24
+    t.string   "client_info",        limit: 255
+    t.float    "upstream_bps",       limit: 24
+    t.float    "jitter",             limit: 24
+    t.float    "downstream_bps",     limit: 24
+    t.float    "client_rssi",        limit: 24
+    t.float    "router_rssi",        limit: 24
+    t.integer  "num_active_clients", limit: 4
+    t.float    "client_tx_speed",    limit: 24
+    t.float    "client_rx_speed",    limit: 24
+    t.integer  "client_tx_retries",  limit: 4
+    t.integer  "client_rx_retries",  limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "heatmap_id"
+    t.integer  "heatmap_id",         limit: 4
   end
 
-  add_index "heatmap_points", ["heatmap_id"], name: "index_heatmap_points_on_heatmap_id"
+  add_index "heatmap_points", ["heatmap_id"], name: "index_heatmap_points_on_heatmap_id", using: :btree
 
   create_table "heatmaps", force: :cascade do |t|
-    t.string   "channel"
-    t.string   "radio"
+    t.string   "channel",      limit: 255
+    t.string   "radio",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "residence_id"
+    t.integer  "residence_id", limit: 4
   end
 
-  add_index "heatmaps", ["residence_id"], name: "index_heatmaps_on_residence_id"
+  add_index "heatmaps", ["residence_id"], name: "index_heatmaps_on_residence_id", using: :btree
 
   create_table "residences", force: :cascade do |t|
-    t.string   "address"
+    t.string   "address",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "routers", force: :cascade do |t|
-    t.string   "mac_address"
-    t.string   "serial_number"
-    t.string   "router_model"
-    t.string   "name"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "owner"
+    t.string   "mac_address",   limit: 255
+    t.string   "serial_number", limit: 255
+    t.string   "router_model",  limit: 255
+    t.string   "name",          limit: 255
+    t.float    "latitude",      limit: 24
+    t.float    "longitude",     limit: 24
+    t.string   "owner",         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "residence_id"
-    t.integer  "heatmap_id"
+    t.integer  "residence_id",  limit: 4
+    t.integer  "heatmap_id",    limit: 4
   end
 
-  add_index "routers", ["heatmap_id"], name: "index_routers_on_heatmap_id"
-  add_index "routers", ["residence_id"], name: "index_routers_on_residence_id"
+  add_index "routers", ["heatmap_id"], name: "index_routers_on_heatmap_id", using: :btree
+  add_index "routers", ["residence_id"], name: "index_routers_on_residence_id", using: :btree
 
 end

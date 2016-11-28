@@ -1,0 +1,1 @@
+json.partial! "heatmap_points/heatmap_point", heatmap_point: @heatmap_point
