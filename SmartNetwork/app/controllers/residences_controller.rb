@@ -15,6 +15,12 @@ class ResidencesController < ApplicationController
     render :json => @residences
   end
 
+  def search
+    input = params[:address]
+    @results = Residence.find_by_address(input)
+    render :json => @results
+  end
+
   # GET /residences/new
   def new
     @residence = Residence.new

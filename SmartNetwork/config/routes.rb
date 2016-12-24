@@ -57,15 +57,19 @@ Rails.application.routes.draw do
   resources :heatmap_points
   resources :heatmaps
   resources :routers
-  resources :residences
+  resources :residences do
+    collection do
+      get 'search'
+    end
+  end
+
 
   get 'heatmap/:id' => 'heatmap#get_heatmap_points'
 
   post 'heatmap/id' => 'heatmap#post_heatmap'
 
-  
+
 
 
 
 end
-
