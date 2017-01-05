@@ -15,6 +15,12 @@ class RoutersController < ApplicationController
     render :json => @routers
   end
 
+  def search
+    input = params[:mac_address]
+    @results = Router.find_by_mac_address(input)
+    render :json => @results
+  end
+
   # GET /routers/new
   def new
     @router = Router.new

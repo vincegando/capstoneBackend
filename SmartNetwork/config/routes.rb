@@ -56,7 +56,11 @@ Rails.application.routes.draw do
 
   resources :heatmap_points
   resources :heatmaps
-  resources :routers
+  resources :routers do
+    collection do
+      get 'search'
+    end
+  end
   resources :residences do
     collection do
       get 'search'
