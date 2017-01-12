@@ -10,5 +10,5 @@ class Router < ActiveRecord::Base
 		timestamps
 	end
 	belongs_to :residence
-	belongs_to :heatmap
+	has_and_belongs_to_many :heatmaps
 end
