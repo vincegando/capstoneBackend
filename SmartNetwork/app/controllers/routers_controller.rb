@@ -28,7 +28,7 @@ class RoutersController < ApplicationController
   # POST /routers.json
   def create
     @router = Router.new(router_params)
-    
+    @router.heatmaps << Heatmap.last
     respond_to do |format|
       if @router.save
         format.html { redirect_to @router, notice: 'Router was successfully created.' }
