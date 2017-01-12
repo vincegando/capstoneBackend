@@ -28,7 +28,7 @@ class HeatmapsController < ApplicationController
   # POST /heatmaps.json
   def create
     @heatmap = Heatmap.new(heatmap_params)
-
+    @heatmap.residence = Residence.last
     respond_to do |format|
       if @heatmap.save
         format.html { redirect_to @heatmap, notice: 'Heatmap was successfully created.' }
