@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128230136) do
+ActiveRecord::Schema.define(version: 20170112014329) do
 
   create_table "heatmap_points", force: :cascade do |t|
     t.decimal  "latitude",                       precision: 20, scale: 15
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20161128230136) do
 
   add_index "heatmaps", ["residence_id"], name: "index_heatmaps_on_residence_id", using: :btree
 
+  create_table "heatmaps_routers", id: false, force: :cascade do |t|
+    t.integer "heatmap_id", limit: 4, null: false
+    t.integer "router_id",  limit: 4, null: false
+  end
+
+  add_index "heatmaps_routers", ["heatmap_id", "router_id"], name: "index_heatmaps_routers_on_heatmap_id_and_router_id", using: :btree
+  add_index "heatmaps_routers", ["router_id", "heatmap_id"], name: "index_heatmaps_routers_on_router_id_and_heatmap_id", using: :btree
+
   create_table "residences", force: :cascade do |t|
     t.string   "address",    limit: 255
     t.datetime "created_at"
@@ -61,10 +69,8 @@ ActiveRecord::Schema.define(version: 20161128230136) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "residence_id",  limit: 4
-    t.integer  "heatmap_id",    limit: 4
   end
 
-  add_index "routers", ["heatmap_id"], name: "index_routers_on_heatmap_id", using: :btree
   add_index "routers", ["residence_id"], name: "index_routers_on_residence_id", using: :btree
 
 end
