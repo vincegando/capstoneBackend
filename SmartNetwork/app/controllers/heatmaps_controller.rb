@@ -29,6 +29,7 @@ class HeatmapsController < ApplicationController
   def create
     @heatmap = Heatmap.new(heatmap_params)
     @heatmap.residence = Residence.last
+    @heatmap.routers << Router.last
     respond_to do |format|
       if @heatmap.save
         format.html { redirect_to @heatmap, notice: 'Heatmap was successfully created.' }
