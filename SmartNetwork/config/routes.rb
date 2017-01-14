@@ -55,7 +55,6 @@ Rails.application.routes.draw do
   #   end
 
   resources :heatmap_points
-  resources :heatmaps
   resources :routers do
     collection do
       get 'search'
@@ -67,10 +66,16 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :heatmaps do
+    collection do
+      get 'search'
+    end
+  end
 
-  get 'heatmap/:id' => 'heatmap#get_heatmap_points'
 
-  post 'heatmap/id' => 'heatmap#post_heatmap'
+  # get 'heatmap/:id' => 'heatmap#get_heatmap_points'
+
+  # post 'heatmap/id' => 'heatmap#post_heatmap'
 
 
 

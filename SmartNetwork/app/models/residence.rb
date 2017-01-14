@@ -1,5 +1,7 @@
 class Residence < ActiveRecord::Base
 
+	scope :with_address, -> (address) { where("address like ?", "#{address}%")}
+
   	fields do
   		address :string
   		timestamps

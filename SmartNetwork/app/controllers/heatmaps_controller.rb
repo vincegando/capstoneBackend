@@ -1,3 +1,5 @@
+require 'pry'
+
 class HeatmapsController < ApplicationController
   before_action :set_heatmap, only: [:show, :edit, :update, :destroy]
   protect_from_forgery
@@ -64,6 +66,39 @@ class HeatmapsController < ApplicationController
     end
   end
 
+  def search
+    # binding.pry
+    # if params.length != 1
+    #   render json: {
+    #     status: 400,
+    #     message: "Search query can only contain one parmeter.",
+    #     params_length: params.length
+    #   }.to_json
+    #   return
+    # end
+
+    @result = Array.new
+    # checks if residence_address is a parameter and if so, searches by that.
+    if params.has_key?(:residence_address)
+      @result = search_by_residence(params[:residence_address])
+    end
+
+    respond_to do |format|
+      format.json { render :json => @result }
+    end
+  end
+
+  def search_by_residence(residence_address)
+    heatmaps = Array.new
+    found_residence = Residence.find_by_address(residence_address)
+
+    unless found_residence.nil?
+      heatmaps = found_residence.heatmaps
+    end
+
+    return heatmaps
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_heatmap
@@ -73,8 +108,6 @@ class HeatmapsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
 
     def heatmap_params
-      params.require(:heatmap).permit(:radio, :channel)
+      params.permit(:radio, :channel)
     end
-
-
-end
+  end
