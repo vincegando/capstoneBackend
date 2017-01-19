@@ -1,8 +1,9 @@
 language: ruby
 sudo: required
+before_install: cd SmartNetwork
 rvm:
- - SmartNetwork/2.2
- - SmartNetwork/jruby
- - SmartNetwork/rbx-2
+ - 2.2
+ - jruby
+ - rbx-2
 # uncomment and edit the following line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
