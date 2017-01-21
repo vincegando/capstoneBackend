@@ -39,7 +39,7 @@ test:
   pool: 5
   username: smartnetworkRoot
   password: Pass321word!
-  host: cs1.smartrg.link
+  host: 45.76.3.49 # cs1.smartrg.link
   port: 3306
   database: SmartNetworkTest
 
@@ -49,6 +49,6 @@ production:
   pool: 5
   username: smartnetworkRoot
   password: Pass321word!
-  host: cs1.smartrg.link
+  host: 45.76.3.49 # cs1.smartrg.link
   port: 3306
   database: SmartNetworkProd
