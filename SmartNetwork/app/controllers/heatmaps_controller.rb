@@ -17,6 +17,31 @@ class HeatmapsController < ApplicationController
     render :json => @heatmap
   end
 
+  def search_by_mac
+
+    @results = Array.new
+    input = params[:mac_address]
+
+    @results = search_by_mac_helper(input)
+
+    respond_to do |format|
+      format.json { render :json => @results }
+    end
+
+  end
+
+  def search_by_mac_helper(mac_address)
+
+    results = Array.new
+    all_heatmaps = Router.find_by_mac_address(mac_address)
+
+    unless all_heatmaps.nil?
+      results = all_heatmaps.heatmaps
+    end
+
+    return results
+  end
+
   # GET /heatmaps/new
   def new
     @heatmap = Heatmap.new
