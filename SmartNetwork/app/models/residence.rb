@@ -5,7 +5,7 @@ class Residence < ActiveRecord::Base
   	fields do
   		address :string
   		timestamps
-  	endd
+  	end
 
   	has_many :routers
   	has_many :heatmaps
