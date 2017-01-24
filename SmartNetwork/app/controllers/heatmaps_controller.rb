@@ -64,6 +64,15 @@ class HeatmapsController < ApplicationController
     end
   end
 
+  def search_by_date(start_date, end_date)
+    heatmaps = Array.new
+    found = Heatmap.where("created_at >= ? AND created_at <= ?", start_date, end_date)
+    unless found.nil?
+      heatmaps = found
+    end
+    return heatmaps
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_heatmap
