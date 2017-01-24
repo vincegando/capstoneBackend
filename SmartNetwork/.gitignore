@@ -15,3 +15,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+#.data folder
+.data/
+
+# Mac specific folders
+SmartNetwork/.DS_Store

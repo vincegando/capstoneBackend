@@ -1,3 +1,5 @@
+require 'pry'
+
 class HeatmapsController < ApplicationController
   before_action :set_heatmap, only: [:show, :edit, :update, :destroy]
   protect_from_forgery
@@ -13,6 +15,31 @@ class HeatmapsController < ApplicationController
   def show
     @heatmap = Heatmap.find(params[:id])
     render :json => @heatmap
+  end
+
+  def search_by_mac
+
+    @results = Array.new
+    input = params[:mac_address]
+
+    @results = search_by_mac_helper(input)
+
+    respond_to do |format|
+      format.json { render :json => @results }
+    end
+
+  end
+
+  def search_by_mac_helper(mac_address)
+
+    results = Array.new
+    all_heatmaps = Router.find_by_mac_address(mac_address)
+
+    unless all_heatmaps.nil?
+      results = all_heatmaps.heatmaps
+    end
+
+    return results
   end
 
   # GET /heatmaps/new
@@ -70,6 +97,27 @@ class HeatmapsController < ApplicationController
     unless found.nil?
       heatmaps = found
     end
+
+  def search
+    @result = Array.new
+    # checks if residence_address is a parameter and if so, searches by that.
+    if params.has_key?(:residence_address)
+      @result = search_by_residence(params[:residence_address])
+    end
+
+    respond_to do |format|
+      format.json { render :json => @result }
+    end
+  end
+
+  def search_by_residence(residence_address)
+    heatmaps = Array.new
+    found_residence = Residence.find_by_address(residence_address)
+
+    unless found_residence.nil?
+      heatmaps = found_residence.heatmaps
+    end
+
     return heatmaps
   end
 
@@ -82,8 +130,6 @@ class HeatmapsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
 
     def heatmap_params
-      params.require(:heatmap).permit(:radio, :channel)
+      params.permit(:radio, :channel)
     end
-
-
-end
+  end
