@@ -19,29 +19,15 @@ class HeatmapsController < ApplicationController
   end
 
   def get_heatmaps_and_points
-
     @heatmap = Heatmap.find(params[:id])
-    #convert = JSON.generate(@heatmap)
-    #hash = JSON.parse(convert)
-    #render :json => @heatmap
+    @heatmap_points = @heatmap.heatmap_points
 
-    results = Array.new
-    results = @heatmap.heatmap_points
-    #convert2 = JSON.generate(results)
-    #hash2 = JSON.parse(convert2)
-    #hash2.merge(hash)
-    #hash2.to_json
-
-    respond_to do |format|
-      #format.json { render :json => @heatmap }
-      format.json { render :json => results }
-    end
-
+    render file: 'heatmaps/heatmap_points_for_heatmap.json.erb', content_type: 'application/json'
   end
 
   def search_by_mac
 
-    @results = Array.new
+    @results = []
     input = params[:mac_address]
 
     @results = search_by_mac_helper(input)
@@ -53,15 +39,7 @@ class HeatmapsController < ApplicationController
   end
 
   def search_by_mac_helper(mac_address)
-
-    results = Array.new
-    all_heatmaps = Router.find_by_mac_address(mac_address)
-
-    unless all_heatmaps.nil?
-      results = all_heatmaps.heatmaps
-    end
-
-    return results
+    Router.find_by_mac_address(mac_address)._?.heatmaps
   end
 
   # GET /heatmaps/new

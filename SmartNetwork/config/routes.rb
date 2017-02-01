@@ -54,35 +54,36 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :heatmap_points
+  # resources :heatmap_points
+  # # resources :heatmaps do
+  # #   collection do
+  # #     get 'search_by_mac'
+  # #   end
+  # # end
   # resources :heatmaps do
   #   collection do
   #     get 'search_by_mac'
+  #     get 'search'
   #   end
   # end
-  resources :heatmaps do
-    collection do
-      get 'search_by_mac'
-      get 'search'
-      get 'get_heatmaps_and_points'
-    end
-  end
-  resources :routers do
-    collection do
-      get 'search'
-    end
-  end
-  resources :residences do
-    collection do
-      get 'search'
-    end
-  end
+  # resources :routers do
+  #   collection do
+  #     get 'search'
+  #   end
+  # end
+  # resources :residences do
+  #   collection do
+  #     get 'search'
+  #   end
+  # end
 
-  resources :heatmaps do
-    collection do
-      get 'search'
-    end
-  end
+  # resources :heatmaps do
+  #   collection do
+  #     get 'search'
+  #   end
+  # end
+
+  get 'heatmap_points' => 'heatmaps#get_heatmaps_and_points'
 
 
   # get 'heatmap/:id' => 'heatmap#get_heatmap_points'

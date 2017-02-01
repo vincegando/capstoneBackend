@@ -1,1 +1,0 @@
-json.array! @heatmap_points, partial: 'heatmap_points/heatmap_point', as: :heatmap_point
