@@ -64,6 +64,7 @@ Rails.application.routes.draw do
     collection do
       get 'search_by_mac'
       get 'search'
+      get 'get_heatmaps_and_points'
     end
   end
   resources :routers do

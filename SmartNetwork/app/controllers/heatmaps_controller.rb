@@ -1,4 +1,5 @@
 require 'pry'
+require 'json'
 
 class HeatmapsController < ApplicationController
   before_action :set_heatmap, only: [:show, :edit, :update, :destroy]
@@ -15,6 +16,27 @@ class HeatmapsController < ApplicationController
   def show
     @heatmap = Heatmap.find(params[:id])
     render :json => @heatmap
+  end
+
+  def get_heatmaps_and_points
+
+    @heatmap = Heatmap.find(params[:id])
+    #convert = JSON.generate(@heatmap)
+    #hash = JSON.parse(convert)
+    #render :json => @heatmap
+
+    results = Array.new
+    results = @heatmap.heatmap_points
+    #convert2 = JSON.generate(results)
+    #hash2 = JSON.parse(convert2)
+    #hash2.merge(hash)
+    #hash2.to_json
+
+    respond_to do |format|
+      #format.json { render :json => @heatmap }
+      format.json { render :json => results }
+    end
+
   end
 
   def search_by_mac
