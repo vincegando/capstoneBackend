@@ -41,7 +41,7 @@ class ResidencesController < ApplicationController
         format.json { render :show, status: :created, location: @residence }
       else
         format.html { render :new }
-        format.json { render json: @residence.errors, status: :unprocessable_entity }a
+        format.json { render json: @residence.errors, status: :unprocessable_entity }
       end
     end
   end

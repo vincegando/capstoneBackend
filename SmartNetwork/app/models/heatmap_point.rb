@@ -14,6 +14,8 @@ class HeatmapPoint < ActiveRecord::Base
 		client_rx_speed :float
 		client_tx_retries :integer
 		client_rx_retries :integer
+		retransmits :integer
+		lost_percent :float
     	timestamps
   	end
   	belongs_to :heatmap
