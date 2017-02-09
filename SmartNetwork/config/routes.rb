@@ -85,6 +85,8 @@ Rails.application.routes.draw do
 
   get 'heatmap_points' => 'heatmaps#get_heatmaps_and_points'
 
+  post "/process_residence_information" => "residences#process_information"
+
 
   # get 'heatmap/:id' => 'heatmap#get_heatmap_points'
 

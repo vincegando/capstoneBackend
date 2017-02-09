@@ -1,0 +1,55 @@
+{
+  "residence": "2222 some street, Santa Barbara CA 93101",
+  "routers": [
+    {
+      "mac_address": "0000:0000:0000:0000",
+      "serial_number": "12345568",
+      "router_model": "d4rf",
+      "name": "name",
+      "latitude": 10.2,
+      "longitude": 3.6
+    },
+    {
+      "mac_address": "1111:1111:1111:1111",
+      "serial_number": "6543211",
+      "router_model": "5rf4",
+      "name": "name2",
+      "latitude": 10.23,
+      "longitude": 4.5
+    }
+  ],
+  "heatmap": {
+    "channel": 8,
+    "radio": 5,
+    "heatmap_points": [
+      {
+        "client_info": "20:C9:D0:BE:DE:EB",
+        "upstream_bps": 136403000,
+        "jitter": 572726,
+        "downstream_bps": 135335000,
+        "client_rssi": -48,
+        "router_rssi": -48,
+        "num_active_clients": 1,
+        "client_tx_speed": 121500,
+        "client_rx_speed": 243000,
+        "client_tx_retries": 5816,
+        "client_rx_retries": 4586
+      },
+      {
+        "latitude": "34.409476",
+        "longitude": "-119.864542",
+        "client_info": "20:C9:D0:BE:DE:EB",
+        "upstream_bps": 167903000,
+        "jitter": 572726,
+        "downstream_bps": 167223000,
+        "client_rssi": -30,
+        "router_rssi": -30,
+        "num_active_clients": 1,
+        "client_tx_speed": 121500,
+        "client_rx_speed": 450000,
+        "client_tx_retries": 5402,
+        "client_rx_retries": 3803
+      }
+    ]
+  }
+}

@@ -14,19 +14,19 @@
 ActiveRecord::Schema.define(version: 20170208235318) do
 
   create_table "heatmap_points", force: :cascade do |t|
-    t.decimal  "latitude",                       precision: 20, scale: 15
-    t.decimal  "longitude",                      precision: 20, scale: 15
-    t.string   "client_info",        limit: 255
-    t.float    "upstream_bps",       limit: 24
-    t.float    "jitter",             limit: 24
-    t.float    "downstream_bps",     limit: 24
-    t.float    "client_rssi",        limit: 24
-    t.float    "router_rssi",        limit: 24
-    t.integer  "num_active_clients", limit: 4
-    t.float    "client_tx_speed",    limit: 24
-    t.float    "client_rx_speed",    limit: 24
-    t.integer  "client_tx_retries",  limit: 4
-    t.integer  "client_rx_retries",  limit: 4
+    t.decimal  "latitude",           precision: 20, scale: 15
+    t.decimal  "longitude",          precision: 20, scale: 15
+    t.string   "client_info"
+    t.float    "upstream_bps"
+    t.float    "jitter"
+    t.float    "downstream_bps"
+    t.float    "client_rssi"
+    t.float    "router_rssi"
+    t.integer  "num_active_clients"
+    t.float    "client_tx_speed"
+    t.float    "client_rx_speed"
+    t.integer  "client_tx_retries"
+    t.integer  "client_rx_retries"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "heatmap_id",         limit: 4
@@ -34,45 +34,45 @@ ActiveRecord::Schema.define(version: 20170208235318) do
     t.float    "lost_percent",       limit: 24
   end
 
-  add_index "heatmap_points", ["heatmap_id"], name: "index_heatmap_points_on_heatmap_id", using: :btree
+  add_index "heatmap_points", ["heatmap_id"], name: "index_heatmap_points_on_heatmap_id"
 
   create_table "heatmaps", force: :cascade do |t|
-    t.string   "channel",      limit: 255
-    t.string   "radio",        limit: 255
+    t.string   "channel"
+    t.string   "radio"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "residence_id", limit: 4
+    t.integer  "residence_id"
   end
 
-  add_index "heatmaps", ["residence_id"], name: "index_heatmaps_on_residence_id", using: :btree
+  add_index "heatmaps", ["residence_id"], name: "index_heatmaps_on_residence_id"
 
   create_table "heatmaps_routers", id: false, force: :cascade do |t|
-    t.integer "heatmap_id", limit: 4, null: false
-    t.integer "router_id",  limit: 4, null: false
+    t.integer "heatmap_id", null: false
+    t.integer "router_id",  null: false
   end
 
-  add_index "heatmaps_routers", ["heatmap_id", "router_id"], name: "index_heatmaps_routers_on_heatmap_id_and_router_id", using: :btree
-  add_index "heatmaps_routers", ["router_id", "heatmap_id"], name: "index_heatmaps_routers_on_router_id_and_heatmap_id", using: :btree
+  add_index "heatmaps_routers", ["heatmap_id", "router_id"], name: "index_heatmaps_routers_on_heatmap_id_and_router_id"
+  add_index "heatmaps_routers", ["router_id", "heatmap_id"], name: "index_heatmaps_routers_on_router_id_and_heatmap_id"
 
   create_table "residences", force: :cascade do |t|
-    t.string   "address",    limit: 255
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "routers", force: :cascade do |t|
-    t.string   "mac_address",   limit: 255
-    t.string   "serial_number", limit: 255
-    t.string   "router_model",  limit: 255
-    t.string   "name",          limit: 255
-    t.decimal  "latitude",                  precision: 20, scale: 15
-    t.decimal  "longitude",                 precision: 20, scale: 15
-    t.string   "owner",         limit: 255
+    t.string   "mac_address"
+    t.string   "serial_number"
+    t.string   "router_model"
+    t.string   "name"
+    t.decimal  "latitude",      precision: 20, scale: 15
+    t.decimal  "longitude",     precision: 20, scale: 15
+    t.string   "owner"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "residence_id",  limit: 4
+    t.integer  "residence_id"
   end
 
-  add_index "routers", ["residence_id"], name: "index_routers_on_residence_id", using: :btree
+  add_index "routers", ["residence_id"], name: "index_routers_on_residence_id"
 
 end
