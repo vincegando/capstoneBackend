@@ -173,6 +173,7 @@ DEPENDENCIES
   hobo_fields
   jbuilder (~> 2.0)
   jquery-rails
+  json
   mysql2
   pry-byebug
   pry-doc
