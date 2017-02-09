@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112014329) do
+ActiveRecord::Schema.define(version: 20170208235318) do
 
   create_table "heatmap_points", force: :cascade do |t|
     t.decimal  "latitude",           precision: 20, scale: 15
@@ -29,7 +29,9 @@ ActiveRecord::Schema.define(version: 20170112014329) do
     t.integer  "client_rx_retries"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "heatmap_id"
+    t.integer  "heatmap_id",         limit: 4
+    t.integer  "retransmits",        limit: 4
+    t.float    "lost_percent",       limit: 24
   end
 
   add_index "heatmap_points", ["heatmap_id"], name: "index_heatmap_points_on_heatmap_id"

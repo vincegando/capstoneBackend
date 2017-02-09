@@ -72,6 +72,6 @@ class HeatmapPointsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def heatmap_point_params
-      params.require(:heatmap_point).permit(:latitude, :longitude, :client_info, :upstream_bps, :downstream_bps, :jitter, :client_rssi, :router_rssi, :num_active_clients, :client_tx_speed, :client_rx_speed, :client_tx_retries, :client_rx_retries)
+      params.require(:heatmap_point).permit(:latitude, :longitude, :client_info, :upstream_bps, :downstream_bps, :jitter, :client_rssi, :router_rssi, :num_active_clients, :client_tx_speed, :client_rx_speed, :client_tx_retries, :client_rx_retries, :retransmits, :lost_percent)
     end
 end
