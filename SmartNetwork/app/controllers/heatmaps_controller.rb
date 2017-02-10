@@ -92,28 +92,18 @@ class HeatmapsController < ApplicationController
   end
 
   def search
-    # binding.pry
-    # if params.length != 1
-    #   render json: {
-    #     status: 400,
-    #     message: "Search query can only contain one parmeter.",
-    #     params_length: params.length
-    #   }.to_json
-    #   return
-    # end
-
-    @result = Array.new
     # checks if residence_address is a parameter and if so, searches by that.
-    if params.has_key?(:residence_address)
-      @result = search_by_residence(params[:residence_address])
-    end
 
-    respond_to do |format|
-      format.json { render :json => @result }
-    end
+      @result =  if params.has_key?(:residence_address)
+                   search_for_heatmaps_by_residence(params[:residence_address])
+                 else
+                   []
+                 end
+
+    render json: @result
   end
 
-  def search_by_residence(residence_address)
+  def search_for_heatmaps_by_residence(residence_address)
     heatmaps = Array.new
     found_residence = Residence.find_by_address(residence_address)
 

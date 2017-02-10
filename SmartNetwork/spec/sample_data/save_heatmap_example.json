@@ -33,7 +33,9 @@
         "client_tx_speed": 121500,
         "client_rx_speed": 243000,
         "client_tx_retries": 5816,
-        "client_rx_retries": 4586
+        "client_rx_retries": 4586,
+        "retransmits": 22,
+        "lost_percent": 6.9
       },
       {
         "latitude": "34.409476",
@@ -48,7 +50,9 @@
         "client_tx_speed": 121500,
         "client_rx_speed": 450000,
         "client_tx_retries": 5402,
-        "client_rx_retries": 3803
+        "client_rx_retries": 3803,
+        "retransmits": 40,
+        "lost_percent": 10.0
       }
     ]
   }
