@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20170208235318) do
     t.integer  "client_rx_retries"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "heatmap_id",         limit: 4
-    t.integer  "retransmits",        limit: 4
-    t.float    "lost_percent",       limit: 24
+    t.integer  "heatmap_id"
+    t.integer  "retransmits"
+    t.float    "lost_percent"
   end
 
   add_index "heatmap_points", ["heatmap_id"], name: "index_heatmap_points_on_heatmap_id"
