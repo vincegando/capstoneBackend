@@ -5,6 +5,7 @@ RSpec.describe "home page", :type => :request do
   it "saves the heatmap information in the database" do
     params ={}
     post "/process_residence_information", json_input,  {'ACCEPT' => "application/json", 'CONTENT_TYPE' => 'application/json'}
+    binding.pry
     expect(response).to be_success
     expect(response).to have_http_status(200)
   end
@@ -17,7 +18,6 @@ RSpec.describe "home page", :type => :request do
     get "/heatmaps/search", residence_address: "6745 Del Playa Dr., Goleta"
     expect(response).to be_success
     expect(response).to have_http_status(200)
-    puts response.body
     expect(response.body).to eq("[{\"id\":1,\"channel\":\"1\",\"radio\":\"2\",\"created_at\":\"2017-02-10T00:28:49.592Z\",\"updated_at\":\"2017-02-10T00:28:49.592Z\",\"residence_id\":1}]")
   end
 end
