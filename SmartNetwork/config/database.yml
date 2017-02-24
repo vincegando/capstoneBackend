@@ -20,16 +20,6 @@ development:
  port: 3306
  database: smartnetwork
 
-# development:
-#  adapter: mysql2
-#  encoding: utf8
-#  pool: 5
-#  username: root
-#  password: Smart123network321*
-#  host: cs1.smartrg.link
-#  port: 3307
-#  database: smartnetwork
-
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
