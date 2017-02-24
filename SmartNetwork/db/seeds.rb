@@ -4,7 +4,8 @@ Heatmap.destroy_all
 HeatmapPoint.destroy_all
 
 residence = Residence.create(
-	address: "6745 Del Playa Dr., Goleta"
+	address: "6745 Del Playa Dr., Goleta",
+  account_number: "1234567"
 )
 
 router = Router.create(

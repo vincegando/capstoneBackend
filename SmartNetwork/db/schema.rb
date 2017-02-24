@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208235318) do
+ActiveRecord::Schema.define(version: 20170223022213) do
 
   create_table "heatmap_points", force: :cascade do |t|
     t.decimal  "latitude",           precision: 20, scale: 15
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170208235318) do
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "account_number"
   end
 
   create_table "routers", force: :cascade do |t|

@@ -1,101 +1,10 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  scope :heatmaps do
+    get 'heatmap_and_points' => 'heatmaps#get_heatmaps_and_points'
+    get 'search' => 'heatmaps#search'
+    get 'search_by_mac' => 'heatmaps#search_by_mac'
+  end
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # resources :heatmap_points
-  # # resources :heatmaps do
-  # #   collection do
-  # #     get 'search_by_mac'
-  # #   end
-  # # end
-  # resources :heatmaps do
-  #   collection do
-  #     get 'search_by_mac'
-  #     get 'search'
-  #   end
-  # end
-  # resources :routers do
-  #   collection do
-  #     get 'search'
-  #   end
-  # end
-  # resources :residences do
-  #   collection do
-  #     get 'search'
-  #   end
-  # end
-
-  # resources :heatmaps do
-  #   collection do
-  #     get 'search'
-  #   end
-  # end
-
-  get '/heatmaps/heatmap_and_points' => 'heatmaps#get_heatmaps_and_points'
-
-  get "/heatmaps/search" => "heatmaps#search"
-
-  post "/process_residence_information" => "residences#process_information"
-
-
-  # get 'heatmap/:id' => 'heatmap#get_heatmap_points'
-
-  # post 'heatmap/id' => 'heatmap#post_heatmap'
-
-
-
-
+  post '/process_residence_information' => 'residences#process_information'
 
 end
