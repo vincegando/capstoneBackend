@@ -1,17 +1,11 @@
 class ResidencesController < ApplicationController
   protect_from_forgery
 
-  def search
-    input = params[:address]
-    @results = Residence.find_by_address(input)
-    render json: @results
-  end
-
   def process_information
-    residence = Residence.find_by_address(params[:residence]) || Residence.create!(address: params[:residence])
+    residence = Residence.find_by_address(params[:address]) || Residence.create!(address: params[:address], account_number: params[:account_number])
     router_mac_address_for_residence = residence.routers.*.mac_address
     if (routers = params[:routers]).present? && routers.is_a?(Array)
-      created_routers= []
+      created_routers = []
       routers.each do |router|
         unless router_mac_address_for_residence.include?(router[:mac_address])
           created_routers.push Router.create!(router.permit(router.keys).merge(residence: residence))

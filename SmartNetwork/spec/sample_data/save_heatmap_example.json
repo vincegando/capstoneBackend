@@ -1,5 +1,6 @@
 {
-  "residence": "2222 some street, Santa Barbara CA 93101",
+  "address": "2222 some street, Santa Barbara CA 93101",
+  "account_number": "1234567",
   "routers": [
     {
       "mac_address": "0000:0000:0000:0000",
