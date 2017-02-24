@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223022213) do
+ActiveRecord::Schema.define(version: 20170224204537) do
 
   create_table "heatmap_points", force: :cascade do |t|
     t.decimal  "latitude",           precision: 20, scale: 15
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170223022213) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "residence_id"
+    t.float    "zoom"
   end
 
   add_index "heatmaps", ["residence_id"], name: "index_heatmaps_on_residence_id"

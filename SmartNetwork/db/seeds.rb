@@ -22,6 +22,7 @@ router = Router.create(
 heatmap = Heatmap.create(
 	channel: "1",
 	radio: "2",
+  zoom: 18.0,
 	residence_id: residence.id
 )
 
